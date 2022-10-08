@@ -1,6 +1,7 @@
-let state = { count: 0 };
+let state; // starts off undefined
 
-function changeState(state, action) {
+// set with default value for state
+function changeState(state = { count: 0 }, action) {
   switch (action.type) {
     case "counter/increment":
       return { count: state.count + 1 };
@@ -18,3 +19,8 @@ function render() {
   const app = document.querySelector("#app");
   app.textContent = state.count;
 }
+
+// render(); // displays initial render of 0 ...OR
+dispatch({ type: "@@INIT" });
+
+// dispatch({ type: "counter/increment" });
